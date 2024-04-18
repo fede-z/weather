@@ -1,5 +1,107 @@
-<div *ngIf="weatherData">
-    <h2>Weather in {{ weatherData.location.name }}</h2>
-    <p>Temperature: {{ weatherData.current.temp_c }}°C</p>
-    <p>Condition: {{ weatherData.current.condition.text }}</p>
+
+<div class="container">
+    <div class="search">
+        <form #form="ngForm" (submit)="onSubmit()">
+            <input type="text" placeholder="Search location" name="location" [(ngModel)]="location">
+        </form>
+    </div>
+    <div *ngIf="error" class="error">
+        {{error_msg}}
+    </div>
+    <div class="data" [ngClass]="{'day': is_day, 'night':!is_day}" *ngIf="weatherData">
+        <div class="weather-data" >
+            <div class="location">{{weatherData.location.name }}</div>
+            <div class="temperature">{{ weatherData.current.temp_c }}°C</div>
+            <div class="location-info">{{ weatherData.location.region }}, {{ weatherData.location.country }} </div>
+        
+        </div>
+    </div>
+    <div class="day-information" *ngIf="weatherData">
+        <div class="day-info-label">
+        </div>
+        <div class="day-info-container">
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/cloud.png">
+                    <span>condition</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.condition.text }}
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/humidity.png">
+                    <span>humidity</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.humidity }}%
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/wind.png">
+                    <span>wind</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.wind_kph
+                         }} km/h
+
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/wind.png">
+                    <span>wind bearing</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.wind_degree
+                         }} degree
+
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/pressure.png">
+                    <span>pressure</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.pressure_mb
+                         }} millibar
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/visibility.png">
+                    <span>visibility</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.vis_km
+                         }} km
+
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/temp.png">
+                    <span>apparent</span>
+                </div>
+                <div class="day-info-block-value">
+                    {{ weatherData.current.feelslike_c}}°C
+                </div>
+            </div>
+            <div class="day-info-block">
+                <div class="day-info-block-label">
+                    <img src="../../assets/temp.png">
+                    <span>apparent *</span>
+                </div>
+                <div class="day-info-block-value" *ngIf="apparent_temperature">
+                    {{apparent_temperature}}°C
+                </div>
+                <div class="day-info-block-value" *ngIf="!apparent_temperature">
+                    NA
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

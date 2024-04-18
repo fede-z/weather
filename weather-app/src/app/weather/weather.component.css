@@ -1,0 +1,129 @@
+
+.container{
+    width:600px;
+    height:80vh;
+    background-color: var(--blue2);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px var(--shadow-dark);
+
+}
+/* Parti del container */
+.search{
+    position: relative;
+    width:100%;
+    height:10%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    margin-bottom: 1em;
+    text-align: center;
+}
+.data{
+    position: relative;
+    overflow: hidden;
+    width:100%;
+    height:40%;
+}
+.day-information{
+    position: relative;
+    overflow: hidden;
+    width:100%;
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.weather-data{
+    position: relative;
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.location{
+    color: var(--white);
+    text-align: center;
+    font-size: 1.6em;
+
+}
+.temperature{
+    color: var(--white);
+    text-align: center;
+    font-size:4em;
+    font-weight: 900;
+}
+.location-info{
+    color: var(--white);
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.day-info-label{
+    color: var(--white);
+}
+.day-info-container{
+    flex:1;
+    /* background-color: var(--shadow-light); */
+    margin-top: 1em;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.day-info-block{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.day-info-block-label{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.day-info-block-label img{
+    width:1.5em;
+}
+.day-info-block-label span{
+    color: var(--white);
+    font-size: 0.8em;
+}
+.day-info-block-value{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--white);
+}
+
+.search input{
+    /* background-color: var(--shadow-light); */
+    margin-top: 10px;
+    outline: none;
+    border:none;
+    border-radius: 20px;
+    padding:1em;
+
+    font-size: 0.8em;
+    text-align: center;
+}
+/* Sfondo diverso in base a giorno/notte */
+.day{
+    background-color: rgb(136, 210, 239);
+}
+.night{
+    background-color: rgb(46, 54, 117);
+}
+
+.error{
+    color: var(--white);
+    font-size: 0.8em;
+    margin: 10px;
+}
